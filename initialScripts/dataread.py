@@ -25,23 +25,10 @@ data = pd.read_csv('train.csv', sep=',', na_values='.') #read csv file, seperate
 data #show data
 
 
-# In[7]:
-
-get_ipython().magic('whos')
-
-
 # In[14]:
 
 import pandas as pd #data processing, CSV file I/O (e.g. pd.read_csv)
 pd.DataFrame.describe(data)#for large dataframes use pandas.DataFrame.describe()
 
 
-# In[15]:
-
-
-
-
-# In[ ]:
-
-
-
+print(data)
