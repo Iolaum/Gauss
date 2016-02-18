@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # Python Script for Kaggle Competition
 # BNP Paribas Cardif claim management
 
@@ -10,7 +12,7 @@ import csv # read data
 
 #
 
-with open('train.csv', 'r') as data:
+with open('../dataset/train.csv', 'r') as data:
     row = csv.DictReader(data, ',')
     for entry in row:
         print(entry)
