@@ -44,7 +44,7 @@ described_data = pd.DataFrame.describe(data)
 # print(described_data)
 
 # get count of nan values in the columns
-null_nos_per_col = data.isnull().sum()
+# null_nos_per_col = data.isnull().sum()
 # print(null_nos_per_col)
 
 le = preprocessing.LabelEncoder()
@@ -53,6 +53,7 @@ imp = preprocessing.Imputer()
 
 # data is of pandas's type Dataframe. It is a table that consists columns and rows.
 for column in data:
+	print(column)
     # column_series is of pandas type Series ( One-dimensional ndarray with axis labels)
     column_series = data[column]
 
@@ -68,6 +69,11 @@ for column in data:
         # print(np.unique(dummy))
 
     # print(enc.transform(column_series))
+    
+    for index,value in column_series.iteritems():
+    	if value == "":
+    		column_series[index] = described_data[column]['mean']
+    	
 
 # use RandomForestRegressor for regression problem
 # Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
@@ -78,6 +84,7 @@ for column in data:
 model = RandomForestClassifier(n_estimators=100)
 
 # Train the model using the training sets and check score
+print("\nStarted Random Forest Training!")
 model.fit(data, pred)
 
 # Predict Output
