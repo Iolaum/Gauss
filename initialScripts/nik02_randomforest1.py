@@ -43,6 +43,9 @@ del data['ID']
 described_data = pd.DataFrame.describe(data)
 # print(described_data)
 
+# get count of nan values in the columns
+null_nos_per_col = data.isnull().sum()
+# print(null_nos_per_col)
 
 le = preprocessing.LabelEncoder()
 enc = preprocessing.OneHotEncoder()
