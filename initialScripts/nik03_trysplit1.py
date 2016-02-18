@@ -15,10 +15,10 @@ import numpy as np  # linear algebraic manipulation
 import pandas as pd  # data processing, .csv files I/O
 
 output = []
-destfile = open('../dataset/train_splitted.csv', 'w')
+destfile = open('../dataset/test_splitted.csv', 'w')
 csv_writer = csv.writer(destfile)
 
-with open('../dataset/train.csv', 'r') as f:
+with open('../dataset/test.csv', 'r') as f:
 	reader = csv.reader(f)
 	c = 0
 	for row in reader:
