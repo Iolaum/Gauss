@@ -52,39 +52,49 @@ enc = preprocessing.OneHotEncoder()
 imp = preprocessing.Imputer()
 
 # data is of pandas's type Dataframe. It is a table that consists columns and rows.
-for column in data:
-    print(column)
+for idx, column in data.iteritems():
+    print(idx)
     # column_series is of pandas type Series ( One-dimensional ndarray with axis labels)
-    column_series = data[column]
+    column_series = data[idx]
 
     # dtype is property of a Series. It declares the data type of the values inside it.
     if column_series.dtype not in ['int64', 'float64']:
         # print(type(column_series))
         le.fit(column_series)
-        data[column] = le.transform(column_series)
+
+        column_series = le.transform(column_series)
+        data.loc[:, idx] = column_series
 
         # dummy = le.transform(column_series)
         # print("")
         # print(column)
         # print(np.unique(dummy))
 
-    # print(enc.transform(column_series))
+    # fill nan values on each series for each row
+    # else:
+    #     column_series_mean = described_data[idx]['mean']
+    #     for index, value in column_series.iteritems():
+    #         if pd.isnull(value):
+    #             data.loc[index, idx] = column_series_mean
 
-    for index, value in column_series.iteritems():
-        if value == "":
-            column_series[index] = described_data[column]['mean']
+    # fill nan values inside the whole table
+    data = data.fillna(data.mean())
 
 # use RandomForestRegressor for regression problem
 # Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
 
 # class sklearn.preprocessing.OneHotEncoder(n_values='auto', categorical_features='all', dtype=<type 'numpy.float64'>, sparse=True, handle_unknown='error')
 
+data_two = data.astype(np.float32)
+# print(data_two.dtypes)
+# print(data_two.isnull().sum())
+
 # Create Random Forest object
 model = RandomForestClassifier(n_estimators=100)
 
 # Train the model using the training sets and check score
 print("\nStarted Random Forest Training!")
-model.fit(data, pred)
+model.fit(data_two, pred)
 
 # Predict Output
 predicted = model.predict(test)
