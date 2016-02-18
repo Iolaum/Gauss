@@ -53,7 +53,7 @@ imp = preprocessing.Imputer()
 
 # data is of pandas's type Dataframe. It is a table that consists columns and rows.
 for column in data:
-	print(column)
+    print(column)
     # column_series is of pandas type Series ( One-dimensional ndarray with axis labels)
     column_series = data[column]
 
@@ -69,11 +69,10 @@ for column in data:
         # print(np.unique(dummy))
 
     # print(enc.transform(column_series))
-    
-    for index,value in column_series.iteritems():
-    	if value == "":
-    		column_series[index] = described_data[column]['mean']
-    	
+
+    for index, value in column_series.iteritems():
+        if value == "":
+            column_series[index] = described_data[column]['mean']
 
 # use RandomForestRegressor for regression problem
 # Assumed you have, X (predictor) and Y (target) for training data set and x_test(predictor) of test_dataset
