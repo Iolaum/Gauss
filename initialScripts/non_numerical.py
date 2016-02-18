@@ -9,9 +9,13 @@ To run the script you need to have the "train.csv" file inside the /dataset fold
 '''
 
 import pandas as pd
+import numpy as np
+import warnings
+
+warnings.filterwarnings('ignore', 'numpy not_equal will not check object identity in the future')
 
 # Get the data from reading the training set
-data = pd.read_csv('../dataset/train.csv', sep=',', na_values='.') #read csv file, seperated by ;, na values exists
+data = pd.read_csv('../dataset/train.csv', sep=',', na_values='.')  # read csv file, seperated by ;, na values exists
 
 # Find and print the names of all non-numerical features.
 print("Export the features with non-numerical data")
@@ -20,14 +24,34 @@ non_numerical = []
 
 # data is of pandas's type Dataframe. It is a table that consists columns and rows.
 for column in data:
-	# column_series is of pandas type Series ( One-dimensional ndarray with axis labels)
-	column_series = data[column]
+    # column_series is of pandas type Series ( One-dimensional ndarray with axis labels)
+    column_series = data[column]
 
-	# dtype is property of a Series. It declares the data type of the values inside it.
-	if column_series.dtype not in ['int64', 'float64']:
-		first_item = column_series.iloc[0]
-		# Detect NaN values(they are calculated as Objects with type "float")
-		if type(first_item) is not float:
-			non_numerical.append(column)
+    # dtype is property of a Series. It declares the data type of the values inside it.
+    if column_series.dtype not in ['int64', 'float64']:
+        first_item = column_series.iloc[0]
+        # Detect NaN values(they are calculated as Objects with type "float")
+        if type(first_item) is not float:
+            non_numerical.append(column)
 print("")
 print(non_numerical)
+
+non_numerical_values = {}
+
+for column in data:
+    column_series = data[column]
+
+    if column_series.dtype not in ['int64', 'float64']:
+        first_item = column_series.iloc[0]
+
+        if type(first_item) is not float:
+            if column not in non_numerical_values:
+                non_numerical_values[column] = np.unique(column_series.values)
+
+print("")
+for item in non_numerical_values:
+    print("")
+    print(item)
+    print(non_numerical_values[item])
+    print("")
+# print(non_numerical_values)
