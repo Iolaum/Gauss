@@ -20,8 +20,8 @@ warnings.filterwarnings('ignore', 'numpy equal will not check object identity in
 warnings.filterwarnings('ignore', 'numpy not_equal will not check object identity in the future')
 
 # read csv file, seperated by , na values exists
-data = pd.read_csv('../dataset/train_splitted.csv', sep=',', na_values='.')
-test = pd.read_csv('../dataset/test_splitted.csv')
+data = pd.read_csv('../../dataset/train_splitted.csv', sep=',', na_values='.')
+test = pd.read_csv('../../dataset/test_splitted.csv')
 
 # Create train predictor and train sets
 
@@ -131,6 +131,6 @@ predicted = model.predict(test)
 
 print(type(predicted))
 
-with open('../dataset/results.txt', 'w') as f:
+with open('../../dataset/pre_results.txt', 'w') as f:
     for row in predicted:
         f.write(str(row))
