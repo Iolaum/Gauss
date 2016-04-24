@@ -11,6 +11,7 @@ from __future__ import division
 # Import Library & Modules
 import pandas as pd  # data processing, .csv files I/O
 from pprint import pprint as pp
+import pickle
 
 # Read csv file, seperated by ',' 'nan' values exist
 # The result is of pandas's type Dataframe. It is a table that consists columns and rows.
@@ -74,5 +75,8 @@ for idx, column in data.iteritems():
             total_cond_prob_matrix[idx][categ] = categ_class_sums['output_1'] / (
                 categ_class_sums['output_1'] + categ_class_sums['output_0']
             )
+
+with open('../../dataset/02_transform_matrix.p', 'wb') as handle:
+  pickle.dump(total_cond_prob_matrix, handle)
 
 pp(total_cond_prob_matrix)
