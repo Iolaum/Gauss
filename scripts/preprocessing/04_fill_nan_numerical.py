@@ -11,18 +11,47 @@
 import pickle
 from pprint import pprint as pp
 
-with open("../../dataset/03_transformed_dataframe.p") as f:
+with open("../../dataset/03_transformed_tr_dataframe.p", 'rb') as f:
     training_data = pickle.load(f)
+
+# Get the median of each column(feature) from the training dataset
+print("\n MEDIAN OF DATA \n")
 
 median_of_data = training_data.median()
 print(median_of_data)
 
-with open("../../dataset/04_tr_data_median.p", 'wb') as f:
-    pickle.dump(median_of_data, f)
-
+# Apply the median of each feature to the NaN values of the training set
 # ID & Target columns do not have NaN, so they are practically "skipped"
+# Save new tr set into a pickle file
+
+print("\n TRAINING DATA SET BEFORE FILLING NAN \n")
+pp(training_data)
+
 training_data = training_data.fillna(median_of_data)
+
+print("\n TRAINING DATA SET AFTER FILLING NAN \n")
 pp(training_data)
 
 with open("../../dataset/04_tr_filled_data.p", 'wb') as f:
     pickle.dump(training_data, f)
+del training_data
+
+# Apply the median of each feature to the NaN values of the test set
+# Save new ts set into a pickle file
+
+with open("../../dataset/03_transformed_ts_dataframe.p", 'rb') as f:
+    test_data = pickle.load(f)
+
+# Clean non-test data features because fillna considers them as NaN and adds them
+del median_of_data['target']
+
+print("\n TEST DATA SET BEFORE FILLING NAN \n")
+pp(test_data)
+
+test_data = test_data.fillna(median_of_data)
+
+print("\n TEST DATA SET AFTER FILLING NAN \n")
+pp(test_data)
+
+with open("../../dataset/04_ts_filled_data.p", 'wb') as f:
+    pickle.dump(test_data, f)

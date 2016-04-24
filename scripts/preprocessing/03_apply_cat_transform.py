@@ -15,8 +15,9 @@ import pickle
 # Read csv file, seperated by ',' 'nan' values exist
 # The result is of pandas's type Dataframe. It is a table that consists columns and rows.
 data = pd.read_csv('../../dataset/train.csv', sep=',', na_values='.')
+test_data = pd.read_csv('../../dataset/test.csv', sep=',', na_values='.')
 
-with open("../../dataset/02_transform_matrix.p") as f:
+with open("../../dataset/02_transform_matrix.p", 'rb') as f:
     transform_matrix = pickle.load(f)
 
 # Keep the code below for debugging reasons:
@@ -39,8 +40,16 @@ with open("../../dataset/02_transform_matrix.p") as f:
 # replace categorical values using the transformation matrix
 # save the new dataframe in a pickle object
 
+print("\n TRAINING DATA SET AFTER CHANGING CATEGORICAL TO NUMERICAL \n")
 data = data.replace(transform_matrix)
 pp(data)
 
-with open('../../dataset/03_transformed_dataframe.p', 'wb') as handle:
+with open('../../dataset/03_transformed_tr_dataframe.p', 'wb') as handle:
     pickle.dump(data, handle)
+
+print("\n TEST DATA SET AFTER CHANGING CATEGORICAL TO NUMERICAL \n")
+test_data = test_data.replace(transform_matrix)
+pp(test_data)
+
+with open('../../dataset/03_transformed_ts_dataframe.p', 'wb') as handle:
+    pickle.dump(test_data, handle)
