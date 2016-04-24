@@ -7,6 +7,7 @@
 
 # Import Library & Modules
 import pandas as pd  # data processing, .csv files I/O
+import pickle
 
 # Read csv file, seperated by ',' 'nan' values exist
 # The result is of pandas's type Dataframe. It is a table that consists columns and rows.
@@ -40,5 +41,10 @@ for idx, column in data.iteritems():
         
 print("Categorical Values are:")
 print(cat_cols)
+with open('01_cat_col.p', 'wb') as handle:
+  pickle.dump(cat_cols, handle)
+  
 print("Numerical Values are:")
 print(num_cols)
+with open('01_num_col.p', 'wb') as handle:
+  pickle.dump(num_cols, handle)
