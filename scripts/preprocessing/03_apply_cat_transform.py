@@ -1,4 +1,3 @@
-from __future__ import division
 # !/usr/bin/env python
 
 # Python Script for Kaggle Competition
