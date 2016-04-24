@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+from __future__ import division
+# !/usr/bin/env python
 
 # Python Script for Kaggle Competition
 # BNP Paribas Cardif claim management
@@ -12,11 +13,8 @@ import pickle
 # Read csv file, seperated by ',' 'nan' values exist
 # The result is of pandas's type Dataframe. It is a table that consists columns and rows.
 data = pd.read_csv('../../dataset/train.csv', sep=',', na_values='.')
-#test = pd.read_csv('../../dataset/test.csv')
-
 del data['target']
 del data['ID']
-# del test['ID']
 
 # Populate 2 lists with all the columns that have categorical and numerical values.
 cat_cols = []
@@ -27,6 +25,10 @@ for idx, column in data.iteritems():
     column_series = data[idx]
 
     # dtype is property of a Series. It declares the data type of the values inside it.
+    # Get the columns with categorical values
+
+    total_cond_prob_matrix = dict()
+
     if column_series.dtype not in ['int64', 'float64']:
         # print(idx)
         # print(column.dtype)
@@ -41,10 +43,10 @@ for idx, column in data.iteritems():
         
 print("Categorical Values are:")
 print(cat_cols)
-with open('01_cat_col.p', 'wb') as handle:
+with open('../../dataset/01_cat_col.p', 'wb') as handle:
   pickle.dump(cat_cols, handle)
   
 print("Numerical Values are:")
 print(num_cols)
-with open('01_num_col.p', 'wb') as handle:
+with open('../../dataset/01_num_col.p', 'wb') as handle:
   pickle.dump(num_cols, handle)
