@@ -1,10 +1,23 @@
 import nbformat
-from nbformat.v4 import new_code_cell,new_notebook
-
 import codecs
+import argparse
 
-sourceFile = "ali05_fill_nan.py"     # <<<< change
-destFile = "ali05_fill_nan.ipynb"    # <<<< change
+from nbformat.v4 import new_code_cell, new_notebook
+
+parser = argparse.ArgumentParser(
+    description='Give input a .py file and convert it to ipynb file(Jupyter notebook file)'
+)
+parser.add_argument('-i', '--input', help='Input python file name', required=True)
+parser.add_argument('-o', '--output', help='Output ipynb file name', required=True)
+args = parser.parse_args()
+
+## show values ##
+print ("Input Python file: %s" % args.input)
+print ("Output Jupyter notebook file: %s" % args.output)
+
+
+sourceFile = args.input
+destFile = args.output
 
 
 def parsePy(fn):
@@ -12,9 +25,9 @@ def parsePy(fn):
 extracts code cells (whatever is between occurrences of "In[*]:").
 Returns a string containing one or more lines
 """
-    with open(fn,"r") as f:
+    with open(fn, "r") as py_file:
         lines = []
-        for l in f:
+        for l in py_file:
             l1 = l.strip()
             if l1.startswith('# In[') and l1.endswith(']:') and lines:
                 yield "".join(lines)
@@ -23,6 +36,7 @@ Returns a string containing one or more lines
             lines.append(l)
         if lines:
             yield "".join(lines)
+
 
 # Create the code cells by parsing the file in input
 cells = []
@@ -33,7 +47,5 @@ for c in parsePy(sourceFile):
 nb0 = new_notebook(cells=cells,
                    metadata={'language': 'python',})
 
-with codecs.open(destFile, encoding='utf-8', mode='w') as f:
-    nbformat.write(nb0, f, 4)
-    
-    
+with codecs.open(destFile, encoding='utf-8', mode='w') as ipynb_file:
+    nbformat.write(nb0, ipynb_file, 4)
