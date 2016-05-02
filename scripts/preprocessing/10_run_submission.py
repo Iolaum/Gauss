@@ -84,7 +84,7 @@ def submission(standardize, model_type='rf', for_submission=True):
         print("Saving into " + subm_fn)
         subm_dataframe.to_csv("../../dataset/" + subm_fn, index=False)
     else:
-        print("Did not found trained model...saving")
+        print("Did not found trained model...")
 
 
 if __name__ == "__main__":

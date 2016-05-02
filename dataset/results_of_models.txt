@@ -21,8 +21,9 @@ Logistic Regression:
 	Submission 80% - 0.56916	
 	Submission 100% - 0.56864	
 
-
 SVC
-	default
+	default(kernel='rbf', verbose=True, max_iter=500, probability=True)
 	Training Set Error: 0.550276053467
 	Validation Set Error: 0.541685111194
+
+	Submission - 80% - 0.55214
