@@ -325,7 +325,7 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version can be obtained at:
@@ -358,44 +358,19 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-%\author{\IEEEauthorblockN{auth 1}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{auth 2}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{auth 3}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{author 4}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{Nikolaos Perrakis}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: np4g15@soton.ac.uk}}
 
-
-
-\author{\IEEEauthorblockN{Author One\IEEEauthorrefmark{1},
-Author Two\IEEEauthorrefmark{2}, Author Three\IEEEauthorrefmark{3}, Author Four\IEEEauthorrefmark{4} and
+\author{\IEEEauthorblockN{Antonios Andronis\IEEEauthorrefmark{1},
+ Pengfei GAO\IEEEauthorrefmark{2}, Napoleon Koskinas\IEEEauthorrefmark{3}, Syed Muhammad Ali Shah\IEEEauthorrefmark{4} and
 Nikolaos Perrakis\IEEEauthorrefmark{5}}
 \IEEEauthorblockA{University of Southampton\\
 School of Electronics and Computer Science\\
 Data Science Postgraduate Students\\
-Email: \IEEEauthorrefmark{1}author.one@add.on.net,
-\IEEEauthorrefmark{2}author.two@add.on.net,
-\IEEEauthorrefmark{3}author.three@add.on.net,
-\IEEEauthorrefmark{4}author.four@add.on.net}
-\IEEEauthorrefmark{5}np4g15@soton.ac.uk}
+Email: \IEEEauthorrefmark{1}aa3e15@soton.ac.uk ,
+\IEEEauthorrefmark{2}pg6g15@soton.ac.uk ,
+\IEEEauthorrefmark{3}nk5g15@soton.ac.uk ,
+\IEEEauthorrefmark{4}smas1c15@soton.ac.uk ,
+\IEEEauthorrefmark{5}np4g15@soton.ac.uk }}
+
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
@@ -462,16 +437,46 @@ The abstract goes here.
 
 \section{Introduction}
 % no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+Machine Learning is a field that merges Computer Science and Statistical Learning. It has been described as the ``field of study which gives computers the ability to learn without being explicitly programmed"\cite{ml1}. Of course computers have not yet become completely independent, but the evolution of Machine learning methods greatly contributed to the progress made in the filed of Artificial Intelligence. In recent years, when huge amounts of data concerning every sector are produced and stored worldwide,  Machine Learning techniques have been flourishing as they enable computers to learn from available data and create models which enhance prediction and decision making. Data scientists, analysts and researchers develop and consequently apply these analytical modeling methods building on knowledge coming from pattern recognition and computational learning theory.  In addition, they need to have a deep understanding of statistics, mathematical techniques and probabilistic modeling in order to apply the right method on every case. 
 
-\hfill mds
- 
-\hfill January 11, 2007
+In Machine Learning there is not a method which can be considered as "panacea", so the concerned Machine Learning practitioner should originally identify the kind of problem he has to face and analyze its nature to decide the process that needs to be applied. Firstly, he needs to note whether the problem belongs to supervised or unsupervised learning. Thereafter, comes the first contact with the available data which leads to the appropriate preprocessing techniques to be applied so that the data transforms into a format on which machine learning algorithms can perform. The actual analysis takes place when one or more machine learning methods are applied on training data and a prediction model is trained. This model is later applied on the test data in order to evaluate its efficiency on predicting unseen data by learning from data coming from the same source or distribution. In the end comes the evaluation of the model which can lead either to feedback to the whole analysis process in case the one applied did not work efficiently enough, or to the final conclusions and insights which can be extracted by modeling data.
+
+The fore-mentioned authors, for the needs of Advanced Machine Learning module in the University of Southampton in academic year 2015-2016, decided to form a five-member group which undertook a real-world Machine Learning challenge and enabled them to apply the pipeline described above and obtain useful experience and skills.
+
+%\hfill May 3, 2016
+
+\section{Project Background}
+Insurance companies are working very hard to facilitate their clients for providing the best services especially at the time when their clients are facing sudden events in their life. 
+In order to exceed the client expectation specifically in terms of claim approval and imbursements, insurance companies are using complex machine learning and data mining techniques to perform classification of true and false claims, risk assessment and payment process optimization.
+
+False claims are increasing at the accelerated rate in UK\cite{pb1} People are using very creative ideas about submitting false claims to insurance companies that apparently look a straightforward case for approval.  
+It is a big challenge for the insurance company to timely classify the fraud claim and process the genuine case. Insurance companies uses the claim history and data from loss indicators to perform predictive analysis on people who can potentially do false claim.
+
+The project team decided to research on insurance claim management subject by participating in Kaggle competition where a French insurance company named BNP Paribas Cardif has provided an opportunity to Data Scientists to work on the dataset the concerned company provided. Within this competition, Kagglers are challenged with assessing the validity of insurance claims.
+
+The problem is a two-class classification problem, so the project team needed to apply supervised learning techniques in order to classify the claims as:
+%
+\begin{enumerate}
+\item Claims which have enough information to process and decision could be taken straightaway for approval and payments.
+\item Claims which have not enough information to process and need more information for decision.
+\end{enumerate} 
+
+The requirement of the competition from BNP Paribas Cardif was to predict a probability of classifying a claim to a class.
+
+
+\section{Dataset Exploration}
+
+\section{Preprocessing}
+
+\subsection{Categorical features conversion}
+
+
+\subsection{Filling missing values}
+\subsection{Standardization}
+\subsection{Dimensionality reduction (PCA)}
+
+
+\section{}
 
 \subsection{Subsection Heading Here}
 Subsection text here.
@@ -606,11 +611,11 @@ The authors would like to thank...
 % <OR> manually copy in the resultant .bbl file
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
+\begin{thebibliography}{99}
+\bibitem{ml1} Phil Simon (March 18, 2013). \emph{Too Big to Ignore: The Business Case for Big Data.} Wiley. p. 89. ISBN 978-1-118-63817-0.
+\bibitem{pb1} Kate Palmer (July 13, 2015)  \emph{Insurance cheats cost households £90 a year as bogus claims reach record high}\\
+\url{http://www.telegraph.co.uk/journalists/kate-palmer/11736121/Insurance-cheats-cost-households-90-a-year-as-bogus-claims-reach-record-high.html}
 
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
 \end{thebibliography}
 
