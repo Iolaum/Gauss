@@ -3,7 +3,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -46,7 +46,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -283,7 +283,20 @@ The requirement of the competition from BNP Paribas Cardif was to predict a prob
 
 \section{Dataset Exploration}
 
-The training and test sets provided by the competition are roughly 110 Mb each. The data has been anonymized and contains 131 features.
+The training and test sets provided by the competition are roughly 115 Mb each. The data has been anonymized and contains 131 features. As we have said our problem is classification problem. The portion of each class in the training data is shown in figure \ref{fig_de1}.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5in, height=3in]{plot_de1.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Class counts in training dataset.}
+\label{fig_de1}
+\end{figure}
+
+
 
 \section{Preprocessing}
 
