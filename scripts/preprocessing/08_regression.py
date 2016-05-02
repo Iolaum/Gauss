@@ -3,6 +3,7 @@ import os.path
 from sklearn.linear_model import LogisticRegression as lreg
 from sklearn.ensemble import RandomForestClassifier as RFC
 from sklearn.svm import SVC
+from sklearn.ensemble import ExtraTreesClassifier
 
 
 def get_datasets(for_submission):
@@ -82,10 +83,22 @@ def get_model(model_typ):
     #                  verbose=False, max_iter=-1, decision_function_shape=None,
     #                  random_state=None):
 
+    def extra_trees_classifier():
+        print("Creating Extra Decision Trees Classifier")
+        return ExtraTreesClassifier(n_estimators=850,
+                                     max_features=60,
+                                     criterion='entropy',
+                                     min_samples_split=4,
+                                     max_depth=40,
+                                     min_samples_leaf=2,
+                                     n_jobs=-1)
+
+
     options = {
         'rf': random_forest,
         'log_reg': log_regression,
-        'svc': svc
+        'svc': svc,
+        'extra_trees_classifier': extra_trees_classifier
     }
 
     return options[model_typ]()
@@ -120,7 +133,12 @@ def regression(standardize=False, model_type='rf', for_submission=True):
 
 
 if __name__ == "__main__":
-    # Model options: "log_reg", "rf"(Random Forest), "svc"(Support Vector Classification)
-    model_option = "svc"
+    # Model options:
+    # "log_reg",
+    # "rf"(Random Forest),
+    # "svc"(Support Vector Classification)
+    # "extra_trees_classifier" (Extra Decision Trees Classifier)
+
+    model_option = "extra_trees_classifier"
 
     regression(standardize=True, model_type=model_option, for_submission=False)

@@ -3,21 +3,18 @@
 # Python Script for Kaggle Competition
 # BNP Paribas Cardif claim management
 
-# This script handles the preprocessing of our data and more specifically the columns with categorical values.
-# Given the training dataset, we are converting the categorical values to the respective
-# conditional probability for output 1 given each of those values.
-
 # Import Library & Modules
 import pickle
 import numpy as np
 
 
 # Transform categorical values of columns v22       v56       v71      v113
-# that were not in the training dataset to a 0.5 probability
+# that were not in the training dataset to NaN
+# and OVERRIDES the file
 
 def replace_cat(value):
     if type(value) not in [np.int64, np.float64, float]:
-        value = 0.5
+        value = np.nan
     return value
 
 

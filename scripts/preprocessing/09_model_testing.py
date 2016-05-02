@@ -43,10 +43,10 @@ def run_model_prediction(standardize=False, model_type='rf'):
         print("Predict using Random Forest Classifier")
     elif model_type == 'svc':
         print("Predict using SVM Classifier")
-        xts_pred = model.predict_proba(xts)
     elif model_type == 'log_reg':
         print("Predict using Logistic Regressor")
-        xts_pred = model.predict_proba(xts)
+    elif model_type == 'extra_trees_classifier':
+        print("Predict using Extra Decision Trees Classifier")
 
     print("Log Loss fn results")
 
@@ -58,7 +58,12 @@ def run_model_prediction(standardize=False, model_type='rf'):
 
 
 if __name__ == "__main__":
-    # Model options: "log_reg", "rf"(Random Forest), "svc"(Support Vector Classification)
-    model_option = "svc"
+    # Model options:
+    # "log_reg",
+    # "rf"(Random Forest),
+    # "svc"(Support Vector Classification)
+    # "extra_trees_classifier" (Extra Decision Trees Classifier)
+
+    model_option = "extra_trees_classifier"
 
     run_model_prediction(standardize=True, model_type=model_option)

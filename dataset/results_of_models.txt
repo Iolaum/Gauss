@@ -27,3 +27,21 @@ SVC
 	Validation Set Error: 0.541685111194
 
 	Submission - 80% - 0.55214
+
+
+
+	PREPROSSESING CHANGES
+_______________________________
+
+- Change unknown categorical values to median instead of p=0.5
+(To be sure we keep the old test pickle file, we kept it as "03_transformed_ts_dataframe_1.p", so if anyone wants to keep using it, it must be renamed to "03_transformed_ts_dataframe.p")
+-- SOS!!! All steps afterwards(04, 05, ... etc ) have to be re-run!!!
+
+Logistic Regression:
+	n_jobs=7
+	C=10
+	verbose=1
+	max_iter=300
+	
+	Training Set Error: 0.410652551457
+	Validation Set Error: 0.403424330097
