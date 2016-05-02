@@ -8,9 +8,12 @@ def replace_probs(pval):
     return max(min(pval, (1 - 1e-14)), 1e-14)
 
 
-def submission(standardize):
-    model_file_name = "08_log_reg_model_standardized.p" if standardize else "08_log_reg_model.p"
-    print("Loading Transformation Matrix\n")
+def submission(standardize, model_type='rf', for_submission=True):
+    submission = "_submission" if for_submission else ""
+    standardized = "_standardized" if standardize else ""
+    model_file_name = "08_reg_model_" + model_type + standardized + submission + ".p"
+
+    print("Loading Test Set..\n")
     with open("../../dataset/04_ts_filled_data.p", 'rb') as h:
         test_set_df = pickle.load(h)
 
@@ -30,21 +33,31 @@ def submission(standardize):
 
         # x = np.delete(x, 0, axis=0)
 
-    print("Loading Scaler\n")
-    with open("../../dataset/06_standardizer.p", 'rb') as h:
-        scaler = pickle.load(h)
-
     if standardize:
+        print("Loading Scaler\n")
+        with open("../../dataset/06_standardizer.p", 'rb') as h:
+            scaler = pickle.load(h)
         print("Perform standardization\n")
         print(test_set.shape)
         test_set = scaler.transform(test_set)
 
+    # # Debug
+    # print(xtr_pred)
+    # print(xtr_pred.shape)
+
+    print("Log Loss fn results")
     if os.path.isfile("../../dataset/" + model_file_name):
         print("Found trained model, loading...")
         with open("../../dataset/" + model_file_name, 'rb') as h:
             model = pickle.load(h)
 
         test_set_pred = model.predict_proba(test_set)
+        if model_type == 'rf':
+            print("Predict using Random Forest Classifier")
+        elif model_type == 'svc':
+            print("Predict using SVM Classifier")
+        elif model_type == 'log_reg':
+            print("Predict using Logistic Regressor")
 
         # # Debug
         # print(test_set_pred.shape)
@@ -66,11 +79,16 @@ def submission(standardize):
         # print(subm_dataframe.shape)
         # print(subm_dataframe)
 
-        print("Saving into submission_log_reg_01.csv")
-        subm_dataframe.to_csv("../../dataset/submission_log_reg_01.csv", index=False)
+        subm = "_full_tr_set" if for_submission else ""
+        subm_fn = "subm_file_" + model_type + standardized + subm + ".csv"
+        print("Saving into " + subm_fn)
+        subm_dataframe.to_csv("../../dataset/" + subm_fn, index=False)
     else:
         print("Did not found trained model...saving")
 
 
 if __name__ == "__main__":
-    submission(standardize=True)
+    # Model options: "log_reg", "rf"(Random Forest), "svc"(Support Vector Classification)
+    model_option = "svc"
+
+    submission(standardize=True, model_type=model_option, for_submission=False)
