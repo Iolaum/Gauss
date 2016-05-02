@@ -299,16 +299,26 @@ The training and test sets provided by the competition are roughly 115 Mb each. 
 
 
 \section{Preprocessing}
+In the previous section were mentioned the types of variables which the given dataset consists of. Numerical values are in appropriate form to be processed by machine learning algorithms as most of the times they represent ordinal measures. On the other hand, categorical values need to be preprocessed and transformed into numerical so that the algorithms can be applied on them too. In addition, the project team had to overcome the obstacle of missing values in the dataset as they constituted a considerable percentile of the available data. Lastly, the standardization of all variable values was decided as the scale of values was different for every variable. 
 
 \subsection{Categorical features conversion}
+The preprocessing of features with categorical values is a process that the approach that is followed by the team can greatly influence the final outcome of the analysis. The most common and successful approach in this case is an implemented method called One-Hot-Encoder, which expands the dataset by as many new features as the possible values of every categorical feature, having zeros in new features if an observation does not have this categorical value or one in the new feature that corresponds to the value of this observation. This transformation creates a very sparse matrix.
 
+Unfortunately, in our case this method could not applied because one of the categorical variables had 18,000 distinct values, so the application of such an approach would lead to a matrix with several thousands of features, and the final matrix would be extremely sparse. Additionally, the main problem would be that matrices with so large dimensions in features, as well as in observations need computers with much higher processing power than the conventional computers available to the members of the team, as the computational complexity increases exponentially.
 
+As a result of the above observation, the team decided to deploy an alternative approach which was based on the idea of replacing each categorical value  a probability value. For every categorical distinct value of each variable we calculated the conditional probability on getting a response value of one when this categorical value appears, and fiannly replaced the categorical values with the corresponding conditional probability.
 \subsection{Filling missing values}
 \subsection{Standardization}
 \subsection{Dimensionality reduction (PCA)}
 
 
-\section{}
+\section{The Kaggle's winning solution}
+Dexter’s Lab won this competition by applying intelligent approach to feature engineering.  The winning team's approach was that the most important task in feature engineering was to decode the anonymous variables. They successfully did some decoding related to dates and formulas like ‘data of observation’, ‘contract start date’ etc. One very important assumption they have made is that variable ‘v22’ is a customer and ‘v56/v113’ is the product type. Based on this assumption they have dropped v22 from the analysis.
+
+The target value was very pushy for each ‘v22-Customer’, ‘v40/v50-Contract Start Data’ and resulted crediting target sequence through ‘lag target’ and ‘lead target’ variables. 
+
+The winning team has used XGBoost model to achieve 0.42193 score and compared the results with other models like NNETS, linear SVM, Elastic Nets, XGBoost with count and regularized greedy forest which almost gave the same results.
+
 
 \subsection{Subsection Heading Here}
 Subsection text here.
