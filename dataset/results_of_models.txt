@@ -1,0 +1,28 @@
+Random Forest
+	max_features="log2"
+	max_depth=10
+
+	Training Set Error: 0.438449267302
+	Validation Set Error: 0.454686466913
+
+
+	Subm - 80% - 	0.49881
+	Subm - 100% - 	0.49776
+
+Logistic Regression:
+	n_jobs=7
+	C=10
+	verbose=1
+	max_iter=300
+
+	Training Set Error: 0.410705419527
+	Validation Set Error: 0.403280217435
+
+	Submission 80% - 0.56916	
+	Submission 100% - 0.56864	
+
+
+SVC
+	default
+	Training Set Error: 0.550276053467
+	Validation Set Error: 0.541685111194
