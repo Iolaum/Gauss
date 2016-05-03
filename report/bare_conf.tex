@@ -278,7 +278,7 @@ The problem is a two-class classification problem, so the project team needed to
 \item Claims which have not enough information to process and need more information for decision.
 \end{enumerate} 
 
-The requirement of the competition from BNP Paribas Cardif was to predict a probability of classifying a claim to a class.
+The requirement of the competition from BNP Paribas Cardif was to predict a probability of classifying a claim to a class. Each submission is evaluated with a logarithmic loss metric which punishes both incorrect classification but also high confidence on misclassification.
 
 
 \section{Dataset Exploration}
@@ -368,7 +368,35 @@ Machine Learning estimators are inefficient in producing accurate models when th
 
 Normalization rescales the values to a range of [0, 1]. This can be useful in cases where the data are of similar positive scale, but normalizing the data results in not representing the outliers. On the other hand, standardization transforms the distribution to a new one with zero (0) mean and standard deviation of value one (1). As it addresses the above issue more effectively, its application is usually preferred over normalization in cases of data transformation.
 
-\subsection{Dimensionality reduction (PCA)}
+%\subsection{Dimensionality reduction (PCA)}
+
+\section{Supervised Learning Algorithms}
+
+We will now talk about the algorithms we used to create our models from the data we have.
+
+
+\subsection{Logistic Regression}
+
+We started with logistic regression as our first algorithm. We did that because we wanted an elementary benchmark estimator to compare it with our next results. Logistic regression is a well behaved linear classifier and, naturally, works better if the classes are linearly separable in the feature space. Logistics regression does not usually overfit but this can be further enhanced by using a regularizer. We used a standard option of an L2 regularizer.
+
+ 
+Our prime reason for using the Logistic Regression is that this algorithm is very well-behaved classification algorithm. Training set can be trained if the feature vectors are somewhat linear and the dataset is linearly separable. In order to avoid over-fitting, this algorithm uses L1 and L2 regularization by default. The most important advantage of using the Logistic Regression is that it can give the results as a probability of each occurrence. The results we received for submission is 0.56916.
+
+
+
+\subsection{Support Vector Machines}
+
+Support Vector Machines (SVMs) are not significantly different than Logistic Regression. As our dataset is linearly separable, we have used non-linear kernel algorithm called Radial Basic Function (RFB). The results we received for submission is 0.55214.
+
+\subsection{Decision Trees}
+
+The main reason for using the Decision-Tree is that this algorithm does not need features that are linear and are capable of managing categorical values. Secondly it is very efficient in managing large dataset. 
+
+\subsection{Random Forest}
+
+
+The classification model, we decided to test by random forest. The convenience of random forest in this project is that it can estimate the importance features in classification. It is designed to give intelligence about the association of each feature to classification. For the large features in this project, clustering and extracting the most influential feature is essential. The other superiority is the feature will not be deleted through clustering. 
+
 
 
 \section{The Kaggle's winning solution}
@@ -482,6 +510,7 @@ The authors would like to thank Dr. Adam Prugel-Bennett and Dr. Srinandan Dasmah
 \bibitem{ml1} Phil Simon (March 18, 2013). \emph{Too Big to Ignore: The Business Case for Big Data.} Wiley. p. 89. ISBN 978-1-118-63817-0.
 \bibitem{pb1} Kate Palmer (July 13, 2015)  \emph{Insurance cheats cost households £90 a year as bogus claims reach record high}\\
 \url{http://www.telegraph.co.uk/journalists/kate-palmer/11736121/Insurance-cheats-cost-households-90-a-year-as-bogus-claims-reach-record-high.html}
+\bibitem{skl} Pedregosa et al., \emph{Scikit-learn: Machine Learning in Python},  JMLR 12, pp. 2825-2830, 2011.
 
 
 \end{thebibliography}
