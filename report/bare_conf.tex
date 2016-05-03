@@ -296,6 +296,60 @@ The training and test sets provided by the competition are roughly 115 Mb each. 
 \label{fig_de1}
 \end{figure}
 
+Because of anonymization we do not know information about our features. Hence we are led to treat categorical features as nominal features, which creates problems for preprocessing that we will mention later. The number of distinct values in categorical features in the training set is shown in the table below.
+%
+\begin{center}
+\begin{tabular}{ |l|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ Features & v3 & v22 & v24 & v30 & v31 & v47 & v52 & v56 & v66 & v71  \\ \hline
+ Training Set & 4	& 18211	& 5	& 8 & 4 &	10 &	13	& 123	& 3 & 9\\ \hline
+ FEatures & v74 & v75 & v79 & v91 & v107 & v110 & v112 & v113 & v125&\phantom{1}\\ \hline
+  Training Set &  3 & 4 & 18 & 8	& 8	& 3	& 23	& 37	& 91&\phantom{1}\\ \hline
+\end{tabular}
+\end{center}
+The same is shown for the test set. We notice that we have more distinct values on feature v22 on the test set than on the training set. We will have to take that into consideration for feature construction during preprocessing.
+\begin{center}
+\begin{tabular}{ |l|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ Features & v3 & v22 & v24 & v30 & v31 & v47 & v52 & v56 & v66 & v71  \\ \hline
+ Test Set & 4 & 18253 & 5 & 8 & 4 & 9 & 13 & 117 & 3&  9\\ \hline
+ Features & v74 & v75 & v79 & v91 & v107 & v110 & v112 & v113 & v125&\phantom{1}\\ \hline
+  Test Set 	&3	&4&	17& 8 & 	8&	3	&23	&37	&91 &\phantom{1}\\ \hline
+\end{tabular}
+\end{center}
+
+
+
+Moreover our dataset contains a lot of missing values. We are plotting the percentages of missing value per feature on the following figures \ref{fig_de2a} - \ref{fig_de3b}. We see that there is a pattern among the percentages of missing values among the features. This is likely an artefact of the way the data were collected from BNP Paribas but because of the deanonymization we cannot infer more from this.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{plot_de2a}
+\caption{Missing Values Percentages on the training set.}
+\label{fig_de2a}
+\end{figure}
+%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{plot_de2b}
+\caption{Missing Values Percentages on the training set.}
+\label{fig_de2b}
+\end{figure}
+%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{plot_de3a}
+\caption{Missing Values Percentages on the test set.}
+\label{fig_de3a}
+\end{figure}
+%
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{plot_de3b}
+\caption{Missing Values Percentages on the test set.}
+\label{fig_de3b}
+\end{figure}
+
+
 
 
 \section{Preprocessing}
