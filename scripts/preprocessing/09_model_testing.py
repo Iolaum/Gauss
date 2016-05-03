@@ -65,6 +65,6 @@ if __name__ == "__main__":
     # "svc"(Support Vector Classification)
     # "extra_trees_classifier" (Extra Decision Trees Classifier)
 
-    model_option = "rf"
+    model_option = "extra_trees_classifier"
 
     run_model_prediction(standardize=True, model_type=model_option)

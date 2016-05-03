@@ -46,10 +46,13 @@ def get_datasets(for_submission):
 def get_model(model_typ):
     def random_forest():
         print("Creating Random Forest Classifier")
-        return RFC(max_features="log2", max_depth=10)
+        return RFC(
+            max_features=20,
+            max_depth=10,
+            n_estimators=10
+        )
 
     #              n_estimators=10,)
-    #              tors=10,
     #              criterion="gini",
     #              max_depth=None,
     #              min_samples_split=2,
@@ -87,7 +90,7 @@ def get_model(model_typ):
         print("Creating Extra Decision Trees Classifier")
         return ExtraTreesClassifier(n_estimators=20,
                                      max_features=60,
-                                     criterion='entropy',
+                                     criterion='gini',
                                      min_samples_split=4,
                                      max_depth=5,
                                      min_samples_leaf=2,

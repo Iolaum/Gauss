@@ -94,6 +94,6 @@ if __name__ == "__main__":
     # "svc"(Support Vector Classification)
     # "extra_trees_classifier" (Extra Decision Trees Classifier)
 
-    model_option = "extra_trees_classifier"
+    model_option = "rf"
 
     submission(standardize=True, model_type=model_option, for_submission=False)

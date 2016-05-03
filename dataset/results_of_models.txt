@@ -9,6 +9,18 @@ Random Forest
 	Subm - 80% - 	0.49881
 	Subm - 100% - 	0.49776
 
+
+WITH:
+    max_features=20,
+    max_depth=10,
+    n_estimators=10
+
+	Training Set Error: 0.403324983082
+	Validation Set Error: 0.423715872024
+
+	SUBM - 80% - 0.49237
+
+
 Logistic Regression:
 	n_jobs=7
 	C=10
@@ -44,6 +56,10 @@ Extra Decision Trees Classifier
 	Validation Set Error: 0.429266144352
 
 	Submission - 80% - 0.53094
+
+AFTER
+	criterion:'gini'
+	Submission - 80% - 	0.51726
 
 
 
