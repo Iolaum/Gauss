@@ -391,17 +391,16 @@ By comparing the errors between the training and the validation set we saw that 
 
 
 \subsection{Support Vector Machines}
-
-Support Vector Machines (SVMs) are not significantly different than Logistic Regression. As our dataset is linearly separable, we have used non-linear kernel algorithm called Radial Basic Function (RFB). The results we received for submission is 0.55214.
-
+Moving on we tried support vector machines. They are able to classify problems where the decision boundary is more complex than linear. They are reliant on proper feature space construction and there are many available methods, through different kernels, to use. We got our best results by using a radial basis function kernel. We present those results in the following table:
 \begin{center}
 \begin{tabular}{ |l|c| } 
- \hline
+\hline
 Error on Training Set & 0.55027  \\ \hline
 Error on Validation Set & 0.54168 \\ \hline
 Error on Test Set & 0.55214\\ \hline
 \end{tabular}
 \end{center}
+As we see our support vector machine model was far more consistent than the logistic regression model. The errors on all three sets are very similar. Actually our support vector machine model was the most consistent in displaying similar accuracy on all three sets.
 
 \subsection{Decision Trees}
 
