@@ -377,16 +377,31 @@ We will now talk about the algorithms we used to create our models from the data
 
 \subsection{Logistic Regression}
 
-We started with logistic regression as our first algorithm. We did that because we wanted an elementary benchmark estimator to compare it with our next results. Logistic regression is a well behaved linear classifier and, naturally, works better if the classes are linearly separable in the feature space. Logistics regression does not usually overfit but this can be further enhanced by using a regularizer. We used a standard option of an L2 regularizer.
-
- 
-Our prime reason for using the Logistic Regression is that this algorithm is very well-behaved classification algorithm. Training set can be trained if the feature vectors are somewhat linear and the dataset is linearly separable. In order to avoid over-fitting, this algorithm uses L1 and L2 regularization by default. The most important advantage of using the Logistic Regression is that it can give the results as a probability of each occurrence. The results we received for submission is 0.56916.
+We started with logistic regression as our first algorithm. We did that because we wanted an elementary benchmark estimator to compare it with our next results. Logistic regression is a well behaved linear classifier and, naturally, works better if the classes are linearly separable in the feature space. Logistics regression does not usually overfit but this can be further enhanced by using a regularizer. We used a standard option of an L2 regularizer. The results we obtained are shown in the table below:
+\begin{center}
+\begin{tabular}{ |l|c| } 
+\hline
+Error on Training Set & 0.41070  \\ \hline
+Error on Validation Set & 0.40328 \\ \hline
+Error on Test Set & 0.56916\\ \hline
+\end{tabular}
+\end{center}
+By comparing the errors between the training and the validation set we saw that our results hint on good generalising ability. But when we submitted our results at kaggle we got significantly worse evaluation score. This told us that our classifier had poor generalisation ability. The reason for this conflict on generalisation performance comes from the way we created our validation set. It was randomly sampled, with 20\% size from the training set we were provided from kaggle. Hence it behaved similar to the training set we used to train our classifier. This resulted in our model having good generalisation ability on the validation set but not on the test set because it did not resemble so closely the behaviour of the training set.
 
 
 
 \subsection{Support Vector Machines}
 
 Support Vector Machines (SVMs) are not significantly different than Logistic Regression. As our dataset is linearly separable, we have used non-linear kernel algorithm called Radial Basic Function (RFB). The results we received for submission is 0.55214.
+
+\begin{center}
+\begin{tabular}{ |l|c| } 
+ \hline
+Error on Training Set & 0.55027  \\ \hline
+Error on Validation Set & 0.54168 \\ \hline
+Error on Test Set & 0.55214\\ \hline
+\end{tabular}
+\end{center}
 
 \subsection{Decision Trees}
 
@@ -406,7 +421,15 @@ Error on Test Set & 0.53094\\ \hline
 
 The classification model, we decided to test by random forest. The convenience of random forest in this project is that it can estimate the importance features in classification. It is designed to give intelligence about the association of each feature to classification. For the large features in this project, clustering and extracting the most influential feature is essential. The other superiority is the feature will not be deleted through clustering. 
 
-
+\begin{center}
+\begin{tabular}{ |l|c| } 
+ \hline
+Error on Training Set & 0.43844  \\ \hline
+Error on Validation Set & 0.45468 \\ \hline
+Error on Test Set & 0.49881\\ \hline
+\end{tabular}
+\end{center}
+By comparing the errors between the training and the validation set we see that we have a small occurence of overfitting.
 
 \section{The Kaggle's winning solution}
 Dexter’s Lab won this competition by applying intelligent approach to feature engineering.  The winning team's approach was that the most important task in feature engineering was to decode the anonymous variables. They successfully did some decoding related to dates and formulas like ‘data of observation’, ‘contract start date’ etc. One very important assumption they have made is that variable ‘v22’ is a customer and ‘v56/v113’ is the product type. Based on this assumption they have dropped v22 from the analysis.
