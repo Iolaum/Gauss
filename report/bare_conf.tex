@@ -1,133 +1,9 @@
-
-%% bare_conf.tex
-%% V1.3
-%% 2007/01/11
-%% by Michael Shell
-%% See:
-%% http://www.michaelshell.org/
-%% for current contact information.
-%%
-%% This is a skeleton file demonstrating the use of IEEEtran.cls
-%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
-%%
-%% Support sites:
-%% http://www.michaelshell.org/tex/ieeetran/
-%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
-%% and
-%% http://www.ieee.org/
-
-%%*************************************************************************
-%% Legal Notice:
-%% This code is offered as-is without any warranty either expressed or
-%% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
-%% User assumes all risk.
-%% In no event shall IEEE or any contributor to this code be liable for
-%% any damages or losses, including, but not limited to, incidental,
-%% consequential, or any other damages, resulting from the use or misuse
-%% of any information contained here.
-%%
-%% All comments are the opinions of their respective authors and are not
-%% necessarily endorsed by the IEEE.
-%%
-%% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
-%% distributed and modified. A copy of the LPPL, version 1.3, is included
-%% in the base LaTeX documentation of all distributions of LaTeX released
-%% 2003/12/01 or later.
-%% Retain all contribution notices and credits.
-%% ** Modified files should be clearly indicated as such, including  **
-%% ** renaming them and changing author support contact information. **
-%%
-%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
-%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
-%%*************************************************************************
-
-% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
-% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
-% *** with production work. IEEE's font choices can trigger bugs that do  ***
-% *** not appear when using other class files.                            ***
-% The testflow support page is at:
-% http://www.michaelshell.org/tex/testflow/
-
-
-
-% Note that the a4paper option is mainly intended so that authors in
-% countries using A4 can easily print to A4 and see how their papers will
-% look in print - the typesetting of the document will not typically be
-% affected with changes in paper size (but the bottom and side margins will).
-% Use the testflow package mentioned above to verify correct handling of
-% both paper sizes by the user's LaTeX system.
-%
-% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
-% should be used if it is desired that the figures are to be displayed in
-% draft mode.
-%
 \documentclass[conference, onecolumn]{IEEEtran}
-% Add the compsoc option for Computer Society conferences.
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[conference]{../sty/IEEEtran}
-
-
-
-
-
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-
-
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-% The latest version of ifpdf.sty can be obtained from:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
-% Also, note that IEEEtran.cls V1.7 and later provides a builtin
-% \ifCLASSINFOpdf conditional that works the same way.
-% When switching from latex to pdflatex and vice-versa, the compiler may
-% have to be run twice to clear warning/error messages.
-
-
-
-
-
-
-% *** CITATION PACKAGES ***
-%
-%\usepackage{cite}
-% cite.sty was written by Donald Arseneau
-% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
-% \cite{} output to follow that of IEEE. Loading the cite package will
-% result in citation numbers being automatically sorted and properly
-% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
-% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
-% \cite will automatically add leading space, if needed. Use cite.sty's
-% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
-% cite.sty is already installed on most LaTeX systems. Be sure and use
-% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
-% not currently provide for hyperlinked citations.
-% The latest version can be obtained at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
-% The documentation is contained in the cite.sty file itself.
-
-
-
-
-
 
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -170,7 +46,7 @@
 
 % *** MATH PACKAGES ***
 %
-%\usepackage[cmex10]{amsmath}
+\usepackage[cmex10]{amsmath}
 % A popular package from the American Mathematical Society that provides
 % many useful and powerful commands for dealing with mathematics. If using
 % it, be sure to load this package with the cmex10 option to ensure that
@@ -225,29 +101,6 @@
 % set of table tools. array.sty is already installed on most systems. The
 % latest version and documentation can be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/required/tools/
-
-
-%\usepackage{mdwmath}
-%\usepackage{mdwtab}
-% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
-% especially mdwmath.sty and mdwtab.sty which are used to format equations
-% and tables, respectively. The MDWtools set is already installed on most
-% LaTeX systems. The lastest version and documentation is available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
-
-
-% IEEEtran contains the IEEEeqnarray family of commands that can be used to
-% generate multiline equations as well as matrices, tables, etc., of high
-% quality.
-
-
-%\usepackage{eqparbox}
-% Also of notable interest is Scott Pakin's eqparbox package for creating
-% (automatically sized) equal width boxes - aka "natural width parboxes".
-% Available at:
-% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
-
-
 
 
 
@@ -325,23 +178,13 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version can be obtained at:
 % http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
 % Read the url.sty source comments for usage information. Basically,
 % \url{my_url_here}.
-
-
-
-
-
-% *** Do not adjust lengths that control margins, column widths, etc. ***
-% *** Do not use packages that alter fonts (such as pslatex).         ***
-% There should be no need to do such things with IEEEtran.cls V1.6 and later.
-% (Unless specifically asked to do so by the journal or conference you plan
-% to submit to, of course. )
 
 
 % correct bad hyphenation here
@@ -358,74 +201,24 @@
 % author names and affiliations
 % use a multiple column layout for up to three different
 % affiliations
-%\author{\IEEEauthorblockN{auth 1}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{auth 2}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{auth 3}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{author 4}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: homer@thesimpsons.com}
-%\and
-%\IEEEauthorblockN{Nikolaos Perrakis}
-%\IEEEauthorblockA{University of Southampton\\
-%Data Science MSc\\
-%Email: np4g15@soton.ac.uk}}
 
-
-
-\author{\IEEEauthorblockN{Author One\IEEEauthorrefmark{1},
-Author Two\IEEEauthorrefmark{2}, Author Three\IEEEauthorrefmark{3}, Author Four\IEEEauthorrefmark{4} and
+\author{\IEEEauthorblockN{Antonios Andronis\IEEEauthorrefmark{1},
+ Pengfei GAO\IEEEauthorrefmark{2}, Napoleon Koskinas\IEEEauthorrefmark{3}, Syed Muhammad Ali Shah\IEEEauthorrefmark{4} and
 Nikolaos Perrakis\IEEEauthorrefmark{5}}
 \IEEEauthorblockA{University of Southampton\\
 School of Electronics and Computer Science\\
 Data Science Postgraduate Students\\
-Email: \IEEEauthorrefmark{1}author.one@add.on.net,
-\IEEEauthorrefmark{2}author.two@add.on.net,
-\IEEEauthorrefmark{3}author.three@add.on.net,
-\IEEEauthorrefmark{4}author.four@add.on.net}
-\IEEEauthorrefmark{5}np4g15@soton.ac.uk}
+Email: \IEEEauthorrefmark{1}aa3e15@soton.ac.uk ,
+\IEEEauthorrefmark{2}pg6g15@soton.ac.uk ,
+\IEEEauthorrefmark{3}nk5g15@soton.ac.uk ,
+\IEEEauthorrefmark{4}smas1c15@soton.ac.uk ,
+\IEEEauthorrefmark{5}np4g15@soton.ac.uk }}
+
 
 % conference papers do not typically use \thanks and this command
 % is locked out in conference mode. If really needed, such as for
 % the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
 % after \documentclass
-
-% for over three affiliations, or if they all won't fit within the width
-% of the page, use this alternative format:
-% 
-%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
-%Homer Simpson\IEEEauthorrefmark{2},
-%James Kirk\IEEEauthorrefmark{3}, 
-%Montgomery Scott\IEEEauthorrefmark{3} and
-%Eldon Tyrell\IEEEauthorrefmark{4}}
-%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
-%Georgia Institute of Technology,
-%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
-%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
-%Email: homer@thesimpsons.com}
-%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
-%Telephone: (800) 555--1212, Fax: (888) 555--1212}
-%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
-
-
-
-
-% use for special paper notices
-%\IEEEspecialpapernotice{(Invited Paper)}
-
-
 
 
 % make the title area
@@ -461,17 +254,86 @@ The abstract goes here.
 
 
 \section{Introduction}
-% no \IEEEPARstart
-This demo file is intended to serve as a ``starter file''
-for IEEE conference papers produced under \LaTeX\ using
-IEEEtran.cls version 1.7 and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+Machine Learning is a field that merges Computer Science and Statistical Learning. It has been described as the ``field of study which gives computers the ability to learn without being explicitly programmed"\cite{ml1}. Of course computers have not yet become completely independent, but the evolution of Machine learning methods greatly contributed to the progress made in the filed of Artificial Intelligence. In recent years, when huge amounts of data concerning every sector are produced and stored worldwide,  Machine Learning techniques have been flourishing as they enable computers to learn from available data and create models which enhance prediction and decision making. Data scientists, analysts and researchers develop and consequently apply these analytical modeling methods building on knowledge coming from pattern recognition and computational learning theory.  In addition, they need to have a deep understanding of statistics, mathematical techniques and probabilistic modeling in order to apply the right method on every case. 
 
-\hfill mds
- 
-\hfill January 11, 2007
+In Machine Learning there is not a method which can be considered as "panacea", so the concerned Machine Learning practitioner should originally identify the kind of problem he has to face and analyze its nature to decide the process that needs to be applied. Firstly, he needs to note whether the problem belongs to supervised or unsupervised learning. Thereafter, comes the first contact with the available data which leads to the appropriate preprocessing techniques to be applied so that the data transforms into a format on which machine learning algorithms can perform. The actual analysis takes place when one or more machine learning methods are applied on training data and a prediction model is trained. This model is later applied on the test data in order to evaluate its efficiency on predicting unseen data by learning from data coming from the same source or distribution. In the end comes the evaluation of the model which can lead either to feedback to the whole analysis process in case the one applied did not work efficiently enough, or to the final conclusions and insights which can be extracted by modeling data.
+
+The fore-mentioned authors, for the needs of Advanced Machine Learning module in the University of Southampton in academic year 2015-2016, decided to form a five-member group which undertook a real-world Machine Learning challenge and enabled them to apply the pipeline described above and obtain useful experience and skills.
+
+%\hfill May 3, 2016
+
+\section{Project Background}
+Insurance companies are working very hard to facilitate their clients for providing the best services especially at the time when their clients are facing sudden events in their life. 
+In order to exceed the client expectation specifically in terms of claim approval and imbursements, insurance companies are using complex machine learning and data mining techniques to perform classification of true and false claims, risk assessment and payment process optimization.
+
+False claims are increasing at the accelerated rate in UK\cite{pb1} People are using very creative ideas about submitting false claims to insurance companies that apparently look a straightforward case for approval.  
+It is a big challenge for the insurance company to timely classify the fraud claim and process the genuine case. Insurance companies uses the claim history and data from loss indicators to perform predictive analysis on people who can potentially do false claim.
+
+The project team decided to research on insurance claim management subject by participating in Kaggle competition where a French insurance company named BNP Paribas Cardif has provided an opportunity to Data Scientists to work on the dataset the concerned company provided. Within this competition, Kagglers are challenged with assessing the validity of insurance claims.
+
+The problem is a two-class classification problem, so the project team needed to apply supervised learning techniques in order to classify the claims as:
+%
+\begin{enumerate}
+\item Claims which have enough information to process and decision could be taken straightaway for approval and payments.
+\item Claims which have not enough information to process and need more information for decision.
+\end{enumerate} 
+
+The requirement of the competition from BNP Paribas Cardif was to predict a probability of classifying a claim to a class.
+
+
+\section{Dataset Exploration}
+
+The training and test sets provided by the competition are roughly 115 Mb each. The data has been anonymized and contains 131 features. As we have said our problem is classification problem. The portion of each class in the training data is shown in figure \ref{fig_de1}.
+
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=5in, height=3in]{plot_de1.pdf}
+% where an .eps filename suffix will be assumed under latex, 
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+\caption{Class counts in training dataset.}
+\label{fig_de1}
+\end{figure}
+
+
+
+\section{Preprocessing}
+In the previous section were mentioned the types of variables which the given dataset consists of. Numerical values are in appropriate form to be processed by machine learning algorithms as most of the times they represent ordinal measures. On the other hand, categorical values need to be preprocessed and transformed into numerical so that the algorithms can be applied on them as well. In addition, the project team had to overcome the obstacle of missing values in the dataset as they constituted a considerable percentile of the available data. Lastly, the standardization of all variable values was decided as the scale of values was different for every variable. 
+
+\subsection{Categorical features conversion}
+The approach followed by the team for the preprocessing of features with categorical values is a process that can greatly influence the final outcome of the analysis. The most common and successful approach in this case is an implemented method called One-Hot-Encoder, which expands the dataset by as many new features as the possible values of every categorical feature, having zeros in new features if an observation does not have a categorical value or one in the new feature that corresponds to the value of this observation. This transformation creates a very sparse matrix.
+
+Unfortunately, in our case this method could not applied because one of the features with categorical variables ('V22') had 18,000 distinct values. The application of OneHotEncoder for such an approach would lead to a matrix with several thousands of features, and the final matrix would be extremely sparse. Additionally, the main problem would be that matrices with so large dimensions in features, as well as in observations need computers with much higher processing power than the conventional computers available to the members of the team, as the computational complexity increases exponentially.
+
+As a result of the above observation, the team decided to deploy an alternative approach which was based on the idea of replacing each categorical value a probability value. For every categorical distinct value of each variable we calculated the conditional probability of getting a response ('target') value of one (1) when this particular categorical value appears. We then created a transformation matrix that mapped - per feature - all the categorical values into their respective probabilities. Then, we replaced the categorical values of both the training and the test sets with using the same mapping transformation matrix, in order to get consistent results. 
+
+For the values of the categorical features of the test set that were not existing on the training set, we decided to give them the value NaN (Not-A-Number) and handled them on the next step.
+
+
+\subsection{Filling missing values}
+As mentioned before, a considerable part of the dataset matrix is filled with missing values, a fact which incommodes the analysis process and the application of algorithms. The team needed to find a way to avoid using the missing values in calculations.
+
+The first method 
+
+For the numerical dataset, it is sparse and non-negative. Here, we decide to use nonnegative matrix factorization to full fill the missing value. 
+
+To get the prediction of a new matrix R, we can calculate the dot product of the two vectors corresponding to  and :
+
+In practice, I cost more than 30 hours to generate the approximate matrix. Cause it needs uncountable times to determine the stop variable and other coefficient. With the limit of time and equipment, we keep this method as theory analyzing and use another simple method to full fill the missing value.    
+
+
+\subsection{Standardization}
+\subsection{Dimensionality reduction (PCA)}
+
+
+\section{The Kaggle's winning solution}
+Dexter’s Lab won this competition by applying intelligent approach to feature engineering.  The winning team's approach was that the most important task in feature engineering was to decode the anonymous variables. They successfully did some decoding related to dates and formulas like ‘data of observation’, ‘contract start date’ etc. One very important assumption they have made is that variable ‘v22’ is a customer and ‘v56/v113’ is the product type. Based on this assumption they have dropped v22 from the analysis.
+
+The target value was very pushy for each ‘v22-Customer’, ‘v40/v50-Contract Start Date’ and resulted crediting target sequence through ‘lag target’ and ‘lead target’ variables. 
+
+The winning team has used XGBoost model to achieve 0.42193 score and compared the results with other models like NNETS, linear SVM, Elastic Nets, XGBoost with count and regularized greedy forest which almost gave the same results.
+
 
 \subsection{Subsection Heading Here}
 Subsection text here.
@@ -556,14 +418,6 @@ Subsubsection text here.
 %\end{table}
 
 
-% Note that IEEE does not put floats in the very first column - or typically
-% anywhere on the first page for that matter. Also, in-text middle ("here")
-% positioning is not used. Most IEEE journals/conferences use top floats
-% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
-% command of the stfloats package.
-
-
 
 \section{Conclusion}
 The conclusion goes here.
@@ -584,40 +438,17 @@ The authors would like to thank...
 
 
 
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
+\begin{thebibliography}{99}
+\bibitem{ml1} Phil Simon (March 18, 2013). \emph{Too Big to Ignore: The Business Case for Big Data.} Wiley. p. 89. ISBN 978-1-118-63817-0.
+\bibitem{pb1} Kate Palmer (July 13, 2015)  \emph{Insurance cheats cost households £90 a year as bogus claims reach record high}\\
+\url{http://www.telegraph.co.uk/journalists/kate-palmer/11736121/Insurance-cheats-cost-households-90-a-year-as-bogus-claims-reach-record-high.html}
 
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
 \end{thebibliography}
 
 
 
 
-% that's all folks
 \end{document}
 
 

@@ -88,7 +88,12 @@ def submission(standardize, model_type='rf', for_submission=True):
 
 
 if __name__ == "__main__":
-    # Model options: "log_reg", "rf"(Random Forest), "svc"(Support Vector Classification)
-    model_option = "svc"
+    # Model options:
+    # "log_reg",
+    # "rf"(Random Forest),
+    # "svc"(Support Vector Classification)
+    # "extra_trees_classifier" (Extra Decision Trees Classifier)
+
+    model_option = "extra_trees_classifier"
 
     submission(standardize=True, model_type=model_option, for_submission=False)

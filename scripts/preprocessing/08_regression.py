@@ -85,11 +85,11 @@ def get_model(model_typ):
 
     def extra_trees_classifier():
         print("Creating Extra Decision Trees Classifier")
-        return ExtraTreesClassifier(n_estimators=850,
+        return ExtraTreesClassifier(n_estimators=20,
                                      max_features=60,
                                      criterion='entropy',
                                      min_samples_split=4,
-                                     max_depth=40,
+                                     max_depth=5,
                                      min_samples_leaf=2,
                                      n_jobs=-1)
 
@@ -139,6 +139,6 @@ if __name__ == "__main__":
     # "svc"(Support Vector Classification)
     # "extra_trees_classifier" (Extra Decision Trees Classifier)
 
-    model_option = "extra_trees_classifier"
+    model_option = "rf"
 
     regression(standardize=True, model_type=model_option, for_submission=False)
