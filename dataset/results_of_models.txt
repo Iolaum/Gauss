@@ -18,8 +18,9 @@ Logistic Regression:
 	Training Set Error: 0.410705419527
 	Validation Set Error: 0.403280217435
 
-	Submission 80% - 0.56916	
-	Submission 100% - 0.56864	
+
+	Submission 80% - 0.56916
+	Submission 100% - 0.56864
 
 SVC
 	default(kernel='rbf', verbose=True, max_iter=500, probability=True)
@@ -27,6 +28,22 @@ SVC
 	Validation Set Error: 0.541685111194
 
 	Submission - 80% - 0.55214
+
+
+Extra Decision Trees Classifier
+	n_estimators=20,
+	max_features=60,
+	criterion='entropy',
+	min_samples_split=4,
+	max_depth=5,
+	min_samples_leaf=2,
+	n_jobs=-1
+	)
+
+	Training Set Error: 0.43579127969
+	Validation Set Error: 0.429266144352
+
+	Submission - 80% - 0.53094
 
 
 

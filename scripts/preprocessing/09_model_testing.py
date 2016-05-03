@@ -6,9 +6,6 @@ def run_model_prediction(standardize=False, model_type='rf'):
     standardized = "_standardized" if standardize else ""
     model_file_name = "08_reg_model_" + model_type + standardized + ".p"
 
-    with open("../../dataset/" + model_file_name) as handle:
-        model = pickle.load(handle)
-
     print("Loading Training and validation sets\n")
     with open("../../dataset/05_split_xtr.p", 'rb') as h:
         xtr = pickle.load(h)
@@ -31,6 +28,10 @@ def run_model_prediction(standardize=False, model_type='rf'):
 
         xtr = scaler.transform(xtr)
         xts = scaler.transform(xts)
+
+    print("Loading Model\n")
+    with open("../../dataset/" + model_file_name) as handle:
+        model = pickle.load(handle)
 
     xtr_pred = model.predict_proba(xtr)
 
@@ -64,6 +65,6 @@ if __name__ == "__main__":
     # "svc"(Support Vector Classification)
     # "extra_trees_classifier" (Extra Decision Trees Classifier)
 
-    model_option = "extra_trees_classifier"
+    model_option = "rf"
 
     run_model_prediction(standardize=True, model_type=model_option)
