@@ -3874,9 +3874,9 @@ between column types.}%
 \ifCLASSOPTIONconference%
 % IEEE wants section heading spacing to decrease for conference mode
 \def\section{\@startsection{section}{1}{\z@}{1.5ex plus 1.5ex minus 0.5ex}%
-{0.7ex plus 1ex minus 0ex}{\normalfont\normalsize\centering\scshape}}%
+{0.7ex plus 1ex minus 0ex}{\normalfont\Large\centering\scshape}}%
 \def\subsection{\@startsection{subsection}{2}{\z@}{1.5ex plus 1.5ex minus 0.5ex}%
-{0.7ex plus .5ex minus 0ex}{\normalfont\normalsize\itshape}}%
+{0.7ex plus .5ex minus 0ex}{\normalfont\large\itshape}}%
 \else % for journals
 \def\section{\@startsection{section}{1}{\z@}{3.0ex plus 1.5ex minus 1.5ex}% V1.6 3.0ex from 3.5ex
 {0.7ex plus 1ex minus 0ex}{\normalfont\normalsize\centering\scshape}}%
